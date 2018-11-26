@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script type="text/javascript" src="viewModel.js"></script>
+    <script type="text/javascript" src="chartData.js"></script>
+
+    <style>
+        html * {
+            font-size: 10pt;
+            font-family: Arial;
+        }
+        table {
+            border: 2px solid grey;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chartContainer" style="width:100%; height:280px"></div>
+    <table>
+        <tr>
+            <td class="label">Threshold value (red points above threshold):</td>
+            <td><input data-bind="numeric, value: threshold" /></td>
+        </tr>
+        <tr>
+            <td class="label">Number of points to chart:</td>
+            <td><select data-bind="options: numPointsList, value: numPoints"></select></td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        chartData.init();
+        ko.applyBindings(viewModel);
+    </script>
+</body>
+</html>
